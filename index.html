@@ -3,18 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Simulation NOT following Guidelines</title>
+    <title>Non-Optimized Web Design Example</title>
+    <style>
+      /* 2.18 Adopting a More Sustainable Approach to Typography
+           Extensive use of custom web fonts without optimization */
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Roboto:300,400,500,700,900");
+      body {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      /* 2.6 Create a Frictionless Lightweight Experience by Default
+           Complex multi-level navigation with heavy CSS and JavaScript */
+      nav {
+        background: #333;
+        padding: 10px 0;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+
+      nav ul li {
+        display: inline-block;
+        position: relative;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #444;
+      }
+
+      nav ul li:hover ul {
+        display: block;
+      }
+
+      nav ul li ul li {
+        display: block;
+      }
+
+      /* 2.16 Adopting a More Sustainable Approach to Media Assets
+           Media files loaded directly without conditional loading */
+      video,
+      audio {
+        display: block;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      /* 2.16 Adopting a More Sustainable Approach to Media Assets
+           Direct embedding of media without facade pattern */
+      .media-direct {
+        width: 600px;
+        height: 337.5px;
+        margin-left: 100px;
+        margin-right: 100px;
+        display: block;
+      }
+
+      /* 2.17 Adopting a More Sustainable Approach to Animation
+           Heavy use of animations without respect to user preferences */
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-in-right {
+        animation: slideInRight 1s forwards;
+      }
+
+      .slide-in-left {
+        animation: slideInLeft 1s forwards;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        opacity: 0;
+      }
+
+      /* 2.7 Avoid Unnecessary or an Overabundance of Assets
+           Design with excessive decorative elements */
+      main {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        background: #ccc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      p {
+        margin: 10px 0;
+      }
+    </style>
   </head>
-  <body style="width: 100%; max-width: 1440px; margin: auto">
-    <h1>
-      Website Simulation <span style="color: red">NOT</span> following
-      Guidelines
-    </h1>
-    <img src="/no-guidelines/assets/cat-1.jpg" style="width: 100%" />
-    <img src="/no-guidelines/assets/cat-2.jpg" style="width: 100%" />
-    <img src="/no-guidelines/assets/cat-3.jpg" style="width: 100%" />
-    <img src="/no-guidelines/assets/cat-4.jpg" style="width: 100%" />
-    <img src="/no-guidelines/assets/cat-5.jpg" style="width: 100%" />
-    <img src="/no-guidelines/assets/cat-6.jpg" style="width: 100%" />
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="#about">About</a>
+          <ul>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#history">History</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#services">Services</a>
+          <ul>
+            <li><a href="#consulting">Consulting</a></li>
+            <li><a href="#development">Development</a></li>
+          </ul>
+        </li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h1>Non-Optimized Web Page</h1>
+        <p>Focus on delivering essential content with minimal distraction.</p>
+      </section>
+
+      <!-- 2.15 Adopting a More Sustainable Approach to Managing Image Assets
+             Use of high-quality JPEG images with slide-in animation on scroll -->
+      <img
+        src="images/1.jpg"
+        alt="Non-Optimized Image"
+        class="slide-in-right"
+      />
+      <img src="images/2.jpg" alt="Non-Optimized Image" class="slide-in-left" />
+
+      <!-- 2.16 Adopting a More Sustainable Approach to Media Assets
+             Direct embedding of media without facade pattern -->
+      <video
+        class="media-direct"
+        controls
+        autoplay
+        src="videos/example-uncompressed.mp4"
+      ></video>
+
+      <!-- 2.23 Reduce the Impact of Downloadable or Physical Documents
+             Provide non-optimized documents without efficient print stylesheets -->
+      <section>
+        <a href="documents/example.pdf" download="Example_Document"
+          >Download Non-Optimized Document</a
+        >
+      </section>
+    </main>
+
+    <footer>
+      <p>Extensive footer content with multiple links and social media icons</p>
+    </footer>
+
+    <script>
+      // JavaScript to handle the slide-in animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll("img");
+        const options = {
+          root: null,
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver(function (entries, observer) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.classList.add("slide-in-animation");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        images.forEach((image) => {
+          observer.observe(image);
+        });
+      });
+    </script>
   </body>
 </html>
